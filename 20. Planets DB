@@ -1,10 +1,20 @@
-planet(mercury,rocky,36).
-planet(earth,rocky,1).
-planet(jupiter,gasgiant,582).
-planet(saturn,iceberg,752).
-rocky_planet(name,type,dist):-
-    planet(name,type,dist).
-gas_giant(name,type,dist):-
-    planet(name,type,dist).
-ice_berg(name,type,dist):-
-    planet(name,type,dist).
+% Facts about planets
+planet(mercury, rocky, small, 57.9).
+planet(venus, rocky, similar_to_earth, 108.2).
+planet(earth, rocky, habitable, 149.6).
+planet(mars, rocky, small, 227.9).
+planet(jupiter, gas_giant, large, 778.3).
+planet(saturn, gas_giant, ring_system, 1427.0).
+planet(uranus, ice_giant, icy, 2871.0).
+planet(neptune, ice_giant, stormy, 4497.1).
+
+% Rules
+habitable_planet(Name) :-
+    planet(Name, rocky, habitable, _),
+    write(Name).
+
+gas_giant_planet(Name) :-
+    planet(Name, gas_giant, _, _).
+
+ice_giant_planet(Name) :-
+    planet(Name, ice_giant, _, _).
